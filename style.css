@@ -1,0 +1,451 @@
+/* Reset e estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9; /* Um cinza claro para o fundo */
+  color: #0f0f0f;
+  line-height: 1.5; /* Melhorar legibilidade do texto */
+}
+
+/* -------------------- Header -------------------- */
+.header-container {
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  position: fixed; /* Mantém o cabeçalho sempre visível no topo */
+  top: 0;
+  left: 0;
+  width: 100%; /* Garante que o cabeçalho ocupe toda a largura da tela */
+  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Sombra sutil para destaque */
+  height: 60px; /* Altura fixa para o cabeçalho */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo horizontalmente dentro do cabeçalho */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espalha os itens: esquerda, centro, direita */
+  max-width: 1500px; /* Limita a largura do navbar principal */
+  width: 100%; /* Ocupa 100% da largura máxima */
+  flex-wrap: nowrap; /* Impede que os itens do navbar quebrem em linhas */
+  gap: 20px; /* Adiciona um pequeno espaço entre os blocos do navbar */
+}
+
+.navbar-left { /* Agrupamento para o ícone de menu e logo do YouTube */
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* Garante que este bloco não encolha */
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: #606060;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.youtube-logo {
+  height: 24px;
+  margin-right: 0; /* Removido margin-right extra, usando gap no pai */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Permite que a barra de busca ocupe o espaço disponível no centro */
+  max-width: 600px; /* Largura máxima para a busca */
+  /* Removido margin: 0 40px; para permitir melhor flexibilidade com justify-content */
+}
+
+.search-input {
+  flex: 1; /* Garante que o input preencha o espaço dentro da search-box */
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-button {
+  background-color: #f1f1f1;
+  padding: 6px 15px;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button img {
+  height: 20px;
+}
+
+.user-actions-icons {
+  display: flex; /* Garante que os ícones fiquem um ao lado do outro */
+  align-items: center;
+  flex-shrink: 0; /* Garante que este bloco não encolha */
+  gap: 20px; /* Espaçamento entre os ícones de ação */
+}
+
+.user-actions-icons img {
+  height: 24px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  margin-left: 0; /* Removido margin-left, usando gap no pai */
+}
+
+.user-actions-icons img:hover {
+  opacity: 1;
+}
+
+/* -------------------- Main Layout Wrapper -------------------- */
+.main-content-wrapper {
+  display: flex;
+  justify-content: center; /* Centraliza o container principal na página */
+  padding: 20px 0; /* Padding superior e inferior para o conteúdo principal */
+  background-color: #f9f9f9;
+  /* Ajuste o padding-top para compensar a altura do cabeçalho fixo */
+  padding-top: 80px; /* (Altura do cabeçalho 60px) + (padding vertical do header-container 2*10px) = 80px */
+}
+
+/* Container que define o layout flexível para o vídeo e a sidebar */
+.video-and-sidebar-container {
+  display: flex; /* Define o container como flexível para layout lado a lado */
+  max-width: 1500px; /* Largura máxima para o conteúdo centralizado */
+  width: 100%; /* Ocupa 100% da largura máxima permitida */
+  padding: 0 20px; /* Padding lateral dentro do container */
+  gap: 24px; /* Espaço entre o vídeo principal e a barra lateral */
+  align-items: flex-start; /* Alinha o vídeo e a sidebar ao topo */
+}
+
+/* -------------------- Seção do Vídeo Principal -------------------- */
+.main-video-section {
+  flex: 1; /* Permite que esta seção ocupe o espaço restante */
+  min-width: 65%; /* Garante que a seção do vídeo tenha uma largura mínima em telas grandes */
+}
+
+.video-player {
+  width: 100%; /* Ocupa 100% da largura do seu contêiner pai */
+  height: 500px; /* Altura fixa para o player, pode ser ajustada ou responsiva */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para o player */
+}
+
+.video-title {
+  font-size: 24px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  color: #030303;
+  line-height: 1.3;
+}
+
+.channel-subscribe-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee; /* Linha divisória sutil */
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-name {
+  font-size: 16px;
+  color: #030303;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.subscriber-count {
+  font-size: 14px;
+  color: #606060;
+}
+
+.subscribe-button {
+  background-color: #cc0000;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  font-weight: bold;
+  border-radius: 20px; /* Botão mais arredondado */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+}
+
+.subscribe-button:hover {
+  background-color: #e00000;
+}
+
+.video-actions-bar { /* Nome da classe ajustado para clareza */
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Espaçamento entre os botões de ação */
+  margin-bottom: 20px;
+  color: #606060;
+  font-size: 14px;
+}
+
+.action-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px 12px; /* Adiciona padding para tornar clicável */
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.action-item:hover {
+  background-color: #e6e6e6;
+}
+
+.action-icon-small {
+  height: 18px; /* Tamanho menor para os ícones de ação */
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.video-description-box {
+  background-color: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.views-date-info {
+  font-size: 14px;
+  color: #0f0f0f;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.description-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* -------------------- Sidebar de Sugestões -------------------- */
+.video-suggestions-sidebar {
+  flex: 0 0 380px; /* Largura fixa para a sidebar em telas grandes */
+  /* Altura máxima ajustada: 100vh - altura do cabeçalho - padding top/bottom do main-content-wrapper */
+  max-height: calc(100vh - 60px - 40px); /* Altura do header (60px) + padding top/bottom do main-content-wrapper (20px cada = 40px) */
+  overflow-y: auto; /* Adiciona barra de rolagem se o conteúdo exceder a altura */
+  display: flex;
+  flex-direction: column; /* Organiza as sugestões verticalmente */
+  padding-top: 5px; /* Pequeno padding no topo da sidebar */
+}
+
+/* Estilos da barra de rolagem personalizada para a sidebar */
+.video-suggestions-sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.video-suggestions-sidebar::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.video-suggestions-sidebar::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+
+.video-suggestion {
+  display: flex;
+  margin-bottom: 12px; /* Espaçamento entre as sugestões */
+  cursor: pointer;
+  align-items: flex-start; /* Alinha a miniatura e o texto ao topo */
+  gap: 12px; /* Espaço entre a miniatura e as informações do vídeo */
+  padding: 5px; /* Adiciona um pequeno padding para facilitar a interação */
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.video-suggestion:hover {
+  background-color: #f0f0f0; /* Fundo cinza claro ao passar o mouse */
+}
+
+.thumbnail-container {
+  flex-shrink: 0; /* Garante que a miniatura não encolha */
+}
+
+.thumbnail {
+  width: 168px;
+  height: 94px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.video-info {
+  flex: 1; /* Permite que o texto preencha o espaço restante */
+}
+
+.video-suggestion-title {
+  margin: 0;
+  font-size: 14px;
+  color: #0f0f0f;
+  line-height: 1.3;
+  display: -webkit-box; /* Para truncar texto em múltiplas linhas */
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.video-suggestion-channel,
+.video-suggestion-views-date {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #606060;
+  line-height: 1.3;
+}
+
+/* -------------------- Responsividade -------------------- */
+/* Para telas com largura máxima de 1024px (tablets e alguns notebooks) */
+@media (max-width: 1024px) {
+  .video-and-sidebar-container {
+      flex-direction: column; /* A sidebar vai para baixo do vídeo */
+      align-items: center; /* Centraliza o conteúdo quando em coluna */
+  }
+
+  .main-video-section {
+      width: 100%; /* O vídeo principal ocupa a largura total */
+      min-width: unset; /* Remove o min-width fixo para maior flexibilidade */
+      max-width: 800px; /* Limita a largura máxima do vídeo em telas menores */
+  }
+
+  .video-suggestions-sidebar {
+      flex: none; /* Remove a base flexível fixa */
+      width: 100%; /* A sidebar ocupa a largura total abaixo do vídeo */
+      max-width: 800px; /* Limita a largura máxima da sidebar */
+      max-height: 500px; /* Ajusta a altura máxima da sidebar para rolagem */
+      margin-top: 24px; /* Espaçamento entre o vídeo e a sidebar */
+  }
+
+  .search-box {
+      max-width: 400px;
+      margin: 0 10px;
+  }
+
+  .user-actions-icons img {
+      margin-left: 10px;
+  }
+
+  .video-player {
+      height: 400px; /* Ajusta a altura do player para telas menores */
+  }
+}
+
+/* Para telas com largura máxima de 768px (tablets em modo retrato) */
+@media (max-width: 768px) {
+  .navbar {
+      flex-wrap: wrap; /* Permite que os itens do navbar quebrem para a próxima linha */
+      justify-content: center;
+  }
+
+  .menu-icon, .youtube-logo {
+      margin-right: 10px;
+  }
+
+  .search-box {
+      order: 3; /* Move a barra de busca para a próxima linha em telas menores */
+      width: 100%;
+      max-width: unset;
+      margin-top: 15px;
+      margin-bottom: 10px;
+  }
+
+  .user-actions-icons {
+      margin-left: auto; /* Empurra os ícones para a direita em telas menores */
+  }
+
+  .video-player {
+      height: 300px; /* Ainda menor para telas de tablet */
+  }
+
+  .channel-subscribe-info {
+      flex-direction: column; /* Informações do canal e botão de inscrição em coluna */
+      align-items: flex-start;
+  }
+
+  .subscribe-button {
+      margin-top: 10px;
+      width: 100%; /* Ocupa a largura total */
+      text-align: center;
+  }
+
+  .video-actions-bar {
+      flex-wrap: wrap; /* Permite que os botões de ação quebrem */
+      gap: 10px;
+  }
+  
+  .action-item {
+      flex: 1 1 auto; /* Permite que os itens de ação se ajustem à largura */
+      justify-content: center;
+  }
+}
+
+/* Para telas com largura máxima de 480px (smartphones) */
+@media (max-width: 480px) {
+  .header-container {
+      padding: 10px 10px;
+  }
+
+  .video-and-sidebar-container {
+      padding: 0 10px;
+  }
+
+  .video-player {
+      height: 200px; /* Altura mínima para celulares */
+  }
+
+  .video-title {
+      font-size: 18px;
+  }
+
+  .channel-name {
+      font-size: 15px;
+  }
+
+  .subscriber-count,
+  .video-actions-bar,
+  .description-text,
+  .views-date-info {
+      font-size: 13px;
+  }
+
+  .thumbnail {
+      width: 120px; /* Miniaturas menores em celulares */
+      height: 67px;
+  }
+
+  .video-suggestion-title {
+      font-size: 13px;
+  }
+
+  .video-suggestion-channel,
+  .video-suggestion-views-date {
+      font-size: 11px;
+  }
+}
